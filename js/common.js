@@ -6,8 +6,7 @@ $(document).ready(function () {
 	  dots: true,
    });
   $('.questions-block').on('click', function() {
-  	$('.questions-block').removeClass('questions-block-active');
-  	$(this).addClass('questions-block-active')
+  	$(this).toggleClass('questions-block-active');
   })
 
   $('.btn-modal').on('click', function() {
@@ -48,5 +47,5 @@ $(document).ready(function () {
   	});
   });
 
-  $(".phone").inputmask("+375-99-99-99-99");
+  $(".phone").inputmask("+375-(99)-999-99-99");
 })
