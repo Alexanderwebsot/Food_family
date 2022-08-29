@@ -21,6 +21,32 @@ $(document).ready(function () {
   	return false;
   })
 
+  $('.nav-menu').on('click', function() {
+  	$('.modal-menu').addClass('modal-menu-active');
+  	return false;
+  })
+  $('.modal-menu__close').on('click', function() {
+  	$('.modal-menu').removeClass('modal-menu-active');
+  	return false;
+  })
+
+  $(".modal-menu-list li").on("click", 'a', function (event) {
+    $('.modal-menu').removeClass('modal-menu-active');
+    event.preventDefault();
+    let id  = $(this).attr('href'),
+    top = $(id).offset().top;
+    $('body,html').animate({scrollTop: top}, 1500);
+  });
+
+  jQuery(function($){
+  	$(document).mouseup( function(e){ // событие клика по веб-документу
+  		var div = $( "#modal-menu" ); // тут указываем ID элемента
+  		if ( !div.is(e.target) // если клик был не по нашему блоку
+  		    && div.has(e.target).length === 0 ) { // и не по его дочерним элементам
+  			$('.modal-menu').removeClass('modal-menu-active');
+  		}
+  	});
+  });
 
   $(".phone").inputmask("+375-99-99-99-99");
 })
