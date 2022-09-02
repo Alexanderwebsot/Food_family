@@ -1,10 +1,48 @@
 $(document).ready(function () {
   $('.reviews-slider').slick({
-	  infinite: true,
+	  infinite: true,  
 	  slidesToShow: 4,
 	  slidesToScroll: 1,
 	  dots: true,
+    responsive: [
+      {
+        breakpoint: 1000,
+        settings: {
+          variableWidth: true,
+        }
+      },
+    ]
    });
+
+  
+
+
+  $('.work-row').slick({
+    infinite: false,  
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    dots: false,
+    speed: 500,
+    fade: true,
+    cssEase: 'linear',
+    dots: true,
+    adaptiveHeight: true,
+    mobileFirst: true,
+    responsive: [
+      {
+         breakpoint: 1000,
+         settings: "unslick"
+      }
+    ]
+    //variableWidth: true,
+   });
+
+
+  if ($(window).width() > 1000) {
+     $('.work-text').unwrap();
+     $('.work-row img').remove();
+  }
+
   $('.questions-block').on('click', function() {
   	$(this).toggleClass('questions-block-active');
   })
